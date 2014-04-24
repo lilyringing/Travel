@@ -3,6 +3,7 @@ package com.example.travel;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat; 
@@ -24,6 +25,8 @@ public class MainActivity extends Activity {
     private ActionBarDrawerToggle drawerToggle;
     private CharSequence DrawerTitle;
     private CharSequence Title;
+    
+    
     
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +87,13 @@ public class MainActivity extends Activity {
 		
 		switch(position){
 			case 0:
-				fragment = new FragmentHome();
+				Intent intent = new Intent();
+				intent.setClass(MainActivity.this, HomeMapActivity.class);
+				startActivity(intent); 
+				//fragment = new FragmentHome();
+				break;
+			case 1:
+				fragment = new FragmentProfile();
 				break;
 			default:
 				return;
